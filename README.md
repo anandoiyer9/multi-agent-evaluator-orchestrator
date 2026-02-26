@@ -8,27 +8,27 @@ The core insight: **models are better critics than generators.** Separate genera
 
 ```
 ┌──────────────────────────────────────────────────────┐
-│                    ORCHESTRATOR                       │
+│                    ORCHESTRATOR                      │
 │  Selects generator → runs eval loop → checks gates   │
 └──────────────┬───────────────────────┬───────────────┘
                │                       │
-     ┌─────────▼─────────┐   ┌────────▼────────────┐
-     │  GENERATOR AGENTS  │   │  EVALUATOR AGENTS   │
-     │  Claude (factual)  │   │  Accuracy (0-100)   │
-     │  GPT-4 (creative)  │   │  Brand safety       │
-     │  Custom (technical) │   │  Readability        │
-     └─────────┬─────────┘   └────────┬────────────┘
+     ┌─────────▼─────────┐    ┌────────▼────────────┐
+     │  GENERATOR AGENTS │    │  EVALUATOR AGENTS   │
+     │  Claude (factual) │    │  Accuracy (0-100)   │
+     │  GPT-4 (creative) │    │  Brand safety       │
+     │ Custom (technical)│    │  Readability        │
+     └─────────┬─────────┘    └────────┬────────────┘
                │                       │
                └───────────┬───────────┘
                            ▼
-                 ┌─────────────────┐
-                 │  CONVERGENCE    │
-                 │  All pass? Done │
-                 │  Below 70?      │
-                 │    → Human      │
-                 │  Else: retry    │
-                 │    with feedback │
-                 └─────────────────┘
+                  ┌─────────────────┐
+                  │  CONVERGENCE    │
+                  │  All pass? Done │
+                  │  Below 70?      │
+                  │    → Human      │
+                  │  Else: retry    │
+                  │   with feedback │
+                  └─────────────────┘
 ```
 
 ## What's Here
